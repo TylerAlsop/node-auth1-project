@@ -4,8 +4,8 @@
   "description": "## Topics",
   "main": "index.js",
   "scripts": {
-		"server": "nodemon index.js",
-		"start": "node index"
+    "server": "nodemon index.js",
+    "start": "node index"
   },
   "repository": {
     "type": "git",

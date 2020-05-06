@@ -3,9 +3,9 @@ const helmet = require("helmet");
 const cors = require("cors");
 const session = require("express-session")
 
-// const usersRouter = require("../users/users_router.js");
-// const authRouter = require("../auth/authRouter")
-// const restricted = require("../auth/restricted_middleware")
+const usersRouter = require("../routers/usersRouter.js");
+const authRouter = require("../routers/authRouter")
+const restricted = require("../routers/")
 
 const server = express();
 
@@ -13,16 +13,14 @@ const sessionConfig = {
   name: "Cookie Monster",
   secret: "Keep it secret, keep it safe!",
   cookie: {
-    // This is information for both the cookie and the session
+
     maxAge: 1000 * 60 * 60,
-    secure: false, // Should be true during prodeuction. To send only over https
-    httpOnly: true, // true means no access from JS
+    secure: false, 
+    httpOnly: true, 
 
   },
   resave: false,
-  saveUninitialized: true, // GDPR laws require to check with client 
-  ///*** I think the teacher said that if the client chooses not to accept you collecting cookies then this value needs to be changed to false.
-
+  saveUninitialized: true, 
 }
 
 server.use(helmet());
@@ -30,8 +28,8 @@ server.use(express.json());
 server.use(cors());
 server.use(session(sessionConfig))
 
-// server.use("/api/users", restricted, usersRouter);
-// server.use("/api/auth", authRouter);
+server.use("/api/users", restricted, usersRouter);
+server.use("/api/auth", authRouter);
 
 
 server.get("/", (req, res) => {
