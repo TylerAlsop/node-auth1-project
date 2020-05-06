@@ -28,3 +28,19 @@ Add support for **sessions** and **cookies**, use them to keep a record of logge
 
 - Write a piece of **global** middleware that ensures a user is logged in when accessing _any_ route prefixed by `/api/users`.
 - Build a React application that implements components to register, login and view a list of users. Gotta keep sharpening your React skills.
+
+
+
+
+
+
+## Notes for installing dependencies:
+npm init -y
+npm install --save-dev nodemon
+npm install knex --save sqlite3
+npx knex init
+npm install express
+npm install helmet
+npx knex migrate:make initial
+npm install bcryptjs
+npm install express-session
