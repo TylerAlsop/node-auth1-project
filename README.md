@@ -44,3 +44,4 @@ npm install helmet
 npx knex migrate:make initial
 npm install bcryptjs
 npm install express-session
+npm install cors
