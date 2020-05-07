@@ -13,7 +13,7 @@ const restricted = require("../routers/restrictedMiddleware")
 const server = express();
 
 const sessionConfig = {
-  name: "Cookie Monster",
+  name: "Cookie Monster. Because Why Not?",
   secret: "Keep it secret, keep it safe!",
   cookie: {
 
