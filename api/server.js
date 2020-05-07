@@ -3,9 +3,12 @@ const helmet = require("helmet");
 const cors = require("cors");
 const session = require("express-session")
 
-const usersRouter = require("../routers/usersRouter.js");
-const authRouter = require("../routers/authRouter")
-const restricted = require("../routers/")
+const usersRouter = require("../routers/users/usersRouter.js");
+const registerRouter = require("../routers/registerRouter")
+const loginRouter = require("../routers/loginRouter")
+const logoutRouter = require("../routers/logoutRouter")
+
+const restricted = require("../routers/restrictedMiddleware")
 
 const server = express();
 
@@ -29,7 +32,9 @@ server.use(cors());
 server.use(session(sessionConfig))
 
 server.use("/api/users", restricted, usersRouter);
-server.use("/api/auth", authRouter);
+server.use("/api/register", registerRouter)
+server.use("/api/login", loginRouter)
+server.use("/api/logout", logoutRouter)
 
 server.use((err, req, res, next) => {
 	console.log(err)
